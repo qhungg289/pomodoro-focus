@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { motion, AnimatePresence } from "framer-motion";
 import Timer, { minuteToSecond } from "../components/Timer";
+import SetTimeButton from "../components/SetTimeButton";
 import { ArrowSmRightIcon } from "@heroicons/react/solid";
 
 const Home: NextPage = () => {
@@ -11,6 +12,9 @@ const Home: NextPage = () => {
 	const [countdownSecond, setCountdownSecond] = useState(25 * 60);
 	const [key, setKey] = useState(uuidv4());
 	const [minuteInput, setMinuteInput] = useState(1);
+
+	// TODO: Use this to know when is the break time
+	const [pomodoroCount, setPomodoroCount] = useState(0);
 
 	const audioRef = useRef<HTMLAudioElement>(null);
 
@@ -55,7 +59,7 @@ const Home: NextPage = () => {
 						!isCountdownActive
 							? "bg-rose-600 hover:bg-rose-500 text-white"
 							: "border-rose-500 text-rose-500 "
-					} font-semibold`}
+					} font-semibold transition-all`}
 				>
 					{!isCountdownActive ? <span>Start</span> : <span>Pause</span>}
 				</button>
@@ -68,33 +72,27 @@ const Home: NextPage = () => {
 							exit={{ opacity: 0 }}
 							className="flex flex-col sm:flex-row gap-4"
 						>
-							<button
-								className="border-2 border-zinc-700 rounded-md px-4 py-3 text-left sm:text-center hover:bg-zinc-700 focus-visible:bg-zinc-700 transition-all"
+							<SetTimeButton
+								minute={10}
 								onClick={() => {
 									setCountdownSecond(10 * 60);
 									setKey(uuidv4());
 								}}
-							>
-								10 min
-							</button>
-							<button
-								className="border-2 border-zinc-700 rounded-md px-4 py-3 text-left sm:text-center hover:bg-zinc-700 focus-visible:bg-zinc-700 transition-all"
+							/>
+							<SetTimeButton
+								minute={25}
 								onClick={() => {
 									setCountdownSecond(25 * 60);
 									setKey(uuidv4());
 								}}
-							>
-								25 min
-							</button>
-							<button
-								className="border-2 border-zinc-700 rounded-md px-4 py-3 text-left sm:text-center hover:bg-zinc-700 focus-visible:bg-zinc-700 transition-all"
+							/>
+							<SetTimeButton
+								minute={50}
 								onClick={() => {
 									setCountdownSecond(50 * 60);
 									setKey(uuidv4());
 								}}
-							>
-								50 min
-							</button>
+							/>
 							<form
 								onSubmit={(e) => {
 									e.preventDefault();
