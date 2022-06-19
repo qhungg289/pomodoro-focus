@@ -1,16 +1,14 @@
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 
-export function secondToMinute(second: number) {
+export const secondToMinute = (second: number) => {
 	const minute = Math.floor(second / 60);
 	const secondRemainder = second % 60;
 	return `${minute < 10 ? "0" : ""}${minute} : ${
 		secondRemainder < 10 ? "0" : ""
 	}${secondRemainder}`;
-}
+};
 
-export function minuteToSecond(minute: number) {
-	return minute * 60;
-}
+export const minuteToSecond = (minute: number) => minute * 60;
 
 type Props = {
 	countdownSecond: number;
@@ -19,12 +17,12 @@ type Props = {
 	onComplete?: () => void;
 };
 
-export default function Timer({
+const Timer = ({
 	countdownSecond,
 	isCountdownActive,
 	keyForUpdate,
 	onComplete,
-}: Props) {
+}: Props) => {
 	return (
 		<CountdownCircleTimer
 			duration={countdownSecond}
@@ -44,4 +42,6 @@ export default function Timer({
 			)}
 		</CountdownCircleTimer>
 	);
-}
+};
+
+export default Timer;
