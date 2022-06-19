@@ -51,7 +51,9 @@ const Home: NextPage = () => {
 
 				<audio preload="auto" src="/fx/timeup.mp3" ref={audioRef}></audio>
 
-				<button
+				<motion.button
+					whileHover={{ scale: 1.1 }}
+					whileTap={{ scale: 0.9 }}
 					onClick={() => {
 						setIsCountdownActive(!isCountdownActive);
 					}}
@@ -59,10 +61,10 @@ const Home: NextPage = () => {
 						!isCountdownActive
 							? "bg-rose-600 hover:bg-rose-500 text-white"
 							: "border-rose-500 text-rose-500 "
-					} font-semibold transition-all`}
+					} font-semibold transition-colors`}
 				>
 					{!isCountdownActive ? <span>Start</span> : <span>Pause</span>}
-				</button>
+				</motion.button>
 
 				<AnimatePresence>
 					{!isCountdownActive && (
