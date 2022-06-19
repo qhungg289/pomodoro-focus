@@ -39,6 +39,7 @@ const Home: NextPage = () => {
 						setIsCountdownActive(false);
 						const notification = new Notification("Tiny Tomato", {
 							body: "Time is up!",
+							icon: "/favicon.ico",
 						});
 						audioRef.current?.play();
 					}}
