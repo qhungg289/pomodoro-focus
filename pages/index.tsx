@@ -108,7 +108,6 @@ const Home: NextPage = () => {
 								<input
 									type="number"
 									className="border-2 bg-transparent border-zinc-700 rounded-md px-4 py-3 appearance-none"
-									placeholder="Custom (in minutes)"
 									min={1}
 									value={minuteInput}
 									onChange={(e) => setMinuteInput(Number(e.target.value))}
