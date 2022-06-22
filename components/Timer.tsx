@@ -32,7 +32,7 @@ const Timer = ({
 			onComplete={onComplete}
 			key={keyForUpdate}
 			strokeWidth={10}
-			trailStrokeWidth={4}
+			trailStrokeWidth={2}
 			rotation="counterclockwise"
 		>
 			{({ remainingTime }) => (
