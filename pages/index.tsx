@@ -112,11 +112,11 @@ const Home: NextPage = () => {
 									value={minuteInput}
 									onChange={(e) => setMinuteInput(Number(e.target.value))}
 								/>
+								<span className="absolute text-zinc-600 right-14 top-3 select-none pointer-events-none">
+									minutes
+								</span>
 								<label>
 									<input type="submit" value="" className="hidden" />
-									<span className="absolute text-zinc-500 right-14 top-3">
-										minutes
-									</span>
 									<ArrowSmRightIcon
 										className="h-7 w-7 absolute right-4 top-3 text-zinc-600 cursor-pointer"
 										role="button"
