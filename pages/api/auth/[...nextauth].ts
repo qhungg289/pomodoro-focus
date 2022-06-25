@@ -10,12 +10,16 @@ export default NextAuth({
 	adapter: PrismaAdapter(prisma),
 	providers: [
 		FacebookProvider({
-			clientId: process.env.FACEBOOK_CLIENT_ID,
-			clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
+			clientId: process.env.FACEBOOK_CLIENT_ID as string,
+			clientSecret: process.env.FACEBOOK_CLIENT_SECRET as string,
 		}),
 		GoogleProvider({
-			clientId: process.env.GOOGLE_CLIENT_ID,
-			clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+			clientId: process.env.GOOGLE_CLIENT_ID as string,
+			clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
 		}),
 	],
+	theme: {
+		colorScheme: "dark",
+		brandColor: "#18181b",
+	},
 });
