@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Timer, { minuteToSecond } from "../components/Timer";
 import SetTimeButton from "../components/SetTimeButton";
 import { ArrowSmRightIcon } from "@heroicons/react/solid";
+import NavBar from "../components/NavBar";
 
 const Home: NextPage = () => {
 	const [isCountdownActive, setIsCountdownActive] = useState(false);
@@ -34,7 +35,9 @@ const Home: NextPage = () => {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 
-			<main className="container flex flex-col items-center justify-center gap-y-8 min-h-screen">
+			<NavBar />
+
+			<main className="container flex flex-col items-center justify-center gap-y-8 min-h-[calc(100vh-5rem)]">
 				<Timer
 					countdownSecond={countdownSecond}
 					keyForUpdate={key}
